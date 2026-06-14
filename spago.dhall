@@ -1,5 +1,5 @@
 { name = "purescript-lua-control"
-, dependencies = [ "lua-newtype", "lua-prelude" ] 
+, dependencies = [ "newtype", "prelude" ]
 , packages = ./packages.dhall
 , sources = [ "src/**/*.purs" ]
 , backend =

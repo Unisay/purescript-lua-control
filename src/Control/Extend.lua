@@ -1,10 +1,16 @@
 return {
-    arrayExtend = function(f) return function(xs)
-            local result = {}
-            for i, _ in ipairs(xs) do
-                result[i] = f(table.unpack(xs, i + 1))
-            end
-            return result
-        end;
-    end;
+  arrayExtend = (function(f)
+    return function(xs)
+      local len = #xs
+      local result = {}
+      for i = 1, len do
+        local suffix = {}
+        for j = i, len do
+          suffix[j - i + 1] = xs[j]
+        end
+        result[i] = f(suffix)
+      end
+      return result
+    end
+  end)
 }
