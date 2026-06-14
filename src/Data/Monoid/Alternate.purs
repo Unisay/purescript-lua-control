@@ -28,19 +28,25 @@ derive newtype instance ordAlternate :: Ord (f a) => Ord (Alternate f a)
 
 derive newtype instance ord1Alternate :: Ord1 f => Ord1 (Alternate f)
 
-derive newtype instance boundedAlternate :: Bounded (f a) => Bounded (Alternate f a)
+derive newtype instance boundedAlternate ::
+  Bounded (f a) =>
+  Bounded (Alternate f a)
 
 derive newtype instance functorAlternate :: Functor f => Functor (Alternate f)
 
 derive newtype instance applyAlternate :: Apply f => Apply (Alternate f)
 
-derive newtype instance applicativeAlternate :: Applicative f => Applicative (Alternate f)
+derive newtype instance applicativeAlternate ::
+  Applicative f =>
+  Applicative (Alternate f)
 
 derive newtype instance altAlternate :: Alt f => Alt (Alternate f)
 
 derive newtype instance plusAlternate :: Plus f => Plus (Alternate f)
 
-derive newtype instance alternativeAlternate :: Alternative f => Alternative (Alternate f)
+derive newtype instance alternativeAlternate ::
+  Alternative f =>
+  Alternative (Alternate f)
 
 derive newtype instance bindAlternate :: Bind f => Bind (Alternate f)
 
