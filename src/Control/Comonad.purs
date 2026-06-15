@@ -1,5 +1,6 @@
 module Control.Comonad
-  ( class Comonad, extract
+  ( class Comonad
+  , extract
   , module Control.Extend
   , module Data.Functor
   ) where

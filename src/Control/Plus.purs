@@ -1,5 +1,6 @@
 module Control.Plus
-  ( class Plus, empty
+  ( class Plus
+  , empty
   , module Control.Alt
   , module Data.Functor
   ) where

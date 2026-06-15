@@ -1,7 +1,13 @@
 module Control.Extend
-  ( class Extend, extend, (<<=), extendFlipped, (=>>)
-  , composeCoKleisli, (=>=)
-  , composeCoKleisliFlipped, (=<=)
+  ( class Extend
+  , extend
+  , (<<=)
+  , extendFlipped
+  , (=>>)
+  , composeCoKleisli
+  , (=>=)
+  , composeCoKleisliFlipped
+  , (=<=)
   , duplicate
   , module Data.Functor
   ) where
@@ -41,13 +47,15 @@ extendFlipped w f = f <<= w
 infixl 1 extendFlipped as =>>
 
 -- | Forwards co-Kleisli composition.
-composeCoKleisli :: forall b a w c. Extend w => (w a -> b) -> (w b -> c) -> w a -> c
+composeCoKleisli
+  :: forall b a w c. Extend w => (w a -> b) -> (w b -> c) -> w a -> c
 composeCoKleisli f g w = g (f <<= w)
 
 infixr 1 composeCoKleisli as =>=
 
 -- | Backwards co-Kleisli composition.
-composeCoKleisliFlipped :: forall b a w c. Extend w => (w b -> c) -> (w a -> b) -> w a -> c
+composeCoKleisliFlipped
+  :: forall b a w c. Extend w => (w b -> c) -> (w a -> b) -> w a -> c
 composeCoKleisliFlipped f g w = f (g <<= w)
 
 infixr 1 composeCoKleisliFlipped as =<=
